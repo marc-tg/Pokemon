@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { PokemonServiceService } from '../../services/pokemon-service.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
 styleUrls: ['./home.component.css'],
   standalone: true
@@ -13,7 +15,9 @@ styleUrls: ['./home.component.css'],
 export class HomeComponent {
    pokemons:any[]  = [];
    allPokemons:any[] = []
-  constructor(private PokemonService : PokemonServiceService) {
+   pokemonNameFilter: string = '';
+
+  constructor(private router : Router, private PokemonService : PokemonServiceService) {
     this.getAllPokemons();
     
   }
@@ -41,7 +45,10 @@ getAllPokemons() {
 }
 
 
+filter() {
+      this.router.navigate(['/resultados'], { queryParams: { q: this.pokemonNameFilter } });
 
+}
   }
 
   

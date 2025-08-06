@@ -1,7 +1,7 @@
 <div class="p-4 w-full text-center my-10">
   <h1 class="title text-8xl sm:text-9xl">Pokemons</h1>
-  <form action="" class="w-full">
-      <input class="search-input w-1/2 p-4 text-sm md:text-md lg:text-2xl" type="text" placeholder="Busca aqui un pokemon por su nombre">
+  <form (ngSubmit)="filter()" class="w-full">
+      <input class="search-input w-1/2 p-4 text-sm md:text-md lg:text-2xl" name="pokemonNameFilter" [(ngModel)]="pokemonNameFilter" type="text" placeholder="Busca aqui un pokemon por su nombre">
   </form>
 </div>
 
