@@ -24,6 +24,11 @@ getAllPokemons() {
 
     this.allPokemons.forEach(pokemon => {
       this.PokemonService.getPokemonByName(pokemon.name).subscribe((details) => {
+      let idStr = details.id.toString();  // convertir a string
+        while(idStr.length < 3) {
+    idStr = '0' + idStr;  // añadir ceros delante
+}
+  details.id = idStr
         this.pokemons.push(details);
       });
     });

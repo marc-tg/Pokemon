@@ -10,6 +10,7 @@
     @for (pokemon of pokemons; track pokemon) {
       <div class="poke-cards col-span-12 sm:col-span-6 xl:col-span-3 my-3 mx-3 ">
           <p class="text-4xl poke-names">{{pokemon.name}}</p>
+          <p class="poke-card-id">Id <span>{{pokemon.id}}</span></p>
           <img class="poke-cards-img w-full h-auto" [src]="pokemon.image" alt="">
       </div>
     }

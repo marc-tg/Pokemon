@@ -39,3 +39,8 @@ color: #f0f0f0;
   background-color: #f0f0f0; /* azul grisáceo más claro al hacer hover */
   color: black;
 }
+
+.poke-card-id span {
+  font-family: "VT323", monospace;
+    
+}
