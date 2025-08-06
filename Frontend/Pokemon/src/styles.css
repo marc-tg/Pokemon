@@ -2,11 +2,40 @@
 
 body {
       font-family: "Pixelify Sans", sans-serif;
-background-color: rgb(56, 55, 74);
+background-color: rgb(30, 30, 33);
 color: #f0f0f0;
+
 }
 
 .title {
   font-family: "Jersey 20", sans-serif;
-    font-size: 80px;
+}
+
+.search-input {
+    color: black;
+    border: none;
+    min-width: 300px;
+    text-decoration: none;
+}
+
+.poke-cards {
+  max-width: 300px;
+  background-color: rgb(32, 33, 36);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 16px;
+  transition: background-color 0.3s ease;
+  width: 100%; /* para que ocupe toda la columna */
+  box-shadow: 0 0 20px 0 white;
+}
+
+.poke-cards-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.poke-cards:hover {
+  background-color: #f0f0f0; /* azul grisáceo más claro al hacer hover */
+  color: black;
 }

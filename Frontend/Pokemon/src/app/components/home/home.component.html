@@ -1,18 +1,17 @@
-
-<div class="container text-center">
-<h1 class="title">Pokemons</h1>
+<div class="p-4 w-full text-center my-10">
+  <h1 class="title text-8xl sm:text-9xl">Pokemons</h1>
+  <form action="" class="w-full">
+      <input class="search-input w-1/2 p-4 text-sm md:text-md lg:text-2xl" type="text" placeholder="Busca aqui un pokemon por su nombre">
+  </form>
 </div>
 
-<div class="container  ">
-<div class="grid grid-cols-12 place-items-center">
- @for (pokemon of pokemons; track pokemon) {
-    <div class="col-span-6 md:col-span-2">
-        <p class="poke-names ">Nombre {{pokemon.name}}</p>
-        <img [src]="pokemon.image" alt="">
-    </div>
-
-}
+<div class="w-full flex flex-col justify-center items-center">
+  <div class="grid grid-cols-12 place-items-center w-full text-center">
+    @for (pokemon of pokemons; track pokemon) {
+      <div class="poke-cards col-span-12 sm:col-span-6 xl:col-span-3 my-3 mx-3 ">
+          <p class="text-4xl poke-names">{{pokemon.name}}</p>
+          <img class="poke-cards-img w-full h-auto" [src]="pokemon.image" alt="">
+      </div>
+    }
+  </div>
 </div>
-</div>
-
-
