@@ -1,0 +1,7 @@
+#back-arrow img {
+ width: 100px;   
+}
+
+#back-arrow {
+    cursor: pointer;
+}

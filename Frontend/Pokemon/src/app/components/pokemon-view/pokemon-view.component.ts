@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class PokemonViewComponent implements OnInit {
   pokemon: any; // o el tipo que devuelva tu servicio
 
-  constructor(private route: ActivatedRoute , private pokemonService: PokemonServiceService) {}
+  constructor(private router: Router, private route: ActivatedRoute , private pokemonService: PokemonServiceService) {}
 
   ngOnInit() {
 
@@ -37,5 +37,8 @@ export class PokemonViewComponent implements OnInit {
 
 
 
+    goHome() {
+      this.router.navigate(['/']);
+    }
 
 }
