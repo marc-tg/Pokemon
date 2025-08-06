@@ -1,0 +1,25 @@
+/* Texto blanco en todos los botones y flechas */
+::ng-deep .ngx-pagination a,
+::ng-deep .ngx-pagination span {
+  color: black !important;
+}
+
+/* Fondo blanco y texto negro en la página activa, con padding más ajustado y border-radius */
+::ng-deep .ngx-pagination .current {
+  background-color: white !important;
+  color: black !important;
+  font-weight: bold;
+  border-radius: 0.25rem; /* Esquinas redondeadas */
+  padding: 0.15rem 0.5rem; /* Menos padding para que no sea tan grande */
+  min-width: auto; /* Evitar que sea muy ancho */
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5; /* Centrar texto verticalmente */
+}
+
+/* Opcional: al pasar el ratón, el resto sigue blanco */
+::ng-deep .ngx-pagination a:hover,
+::ng-deep .ngx-pagination a:focus {
+  color: white !important;
+  text-decoration: underline;
+}

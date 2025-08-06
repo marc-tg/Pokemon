@@ -4,10 +4,11 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgxPaginationModule],
   templateUrl: './home.component.html',
 styleUrls: ['./home.component.css'],
   standalone: true
@@ -17,6 +18,9 @@ export class HomeComponent {
    allPokemons:any[] = []
    pokemonNameFilter: string = '';
   pokemonName: string = '';
+
+  pokemonsPerPage = 8;
+    p = 1;
   constructor(private router : Router, private PokemonService : PokemonServiceService) {
     this.getAllPokemons();
     
@@ -54,6 +58,11 @@ viewPokemonData(name: string) {
   this.router.navigate(['/pokemon-view'], { queryParams: { name: name } });
   }
 
+    pageChangeEvent(event: number) {
+      this.p = event;
+    }
+  
+   
 }
 
 
