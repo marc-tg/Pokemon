@@ -19,7 +19,7 @@ export class HomeComponent {
    pokemonNameFilter: string = '';
   pokemonName: string = '';
 
-  pokemonsPerPage = 8;
+  pokemonsPerPage = 16;
     p = 1;
   constructor(private router : Router, private PokemonService : PokemonServiceService) {
     this.getAllPokemons();
