@@ -8,10 +8,10 @@
 <div class="w-full flex flex-col justify-center items-center">
   <div class="grid grid-cols-12 place-items-center w-full text-center">
     @for (pokemon of pokemons; track pokemon) {
-      <div class="poke-cards col-span-12 sm:col-span-6 xl:col-span-3 my-3 mx-3 ">
+      <div class="poke-cards col-span-12 sm:col-span-6 xl:col-span-3 my-3 mx-3" (click)="viewPokemonData(pokemon.id)" >
           <p class="text-4xl poke-names">{{pokemon.name}}</p>
           <p class="poke-card-id text-2xl">Id <span>{{pokemon.id}}</span></p>
-          <img class="poke-cards-img w-full h-auto" [src]="pokemon.image" alt="">
+<img class="poke-cards-img w-full h-auto" [src]="pokemon.sprites?.front_default" alt="{{pokemon.name}}">
       </div>
     }
   </div>

@@ -1,0 +1,46 @@
+<div
+  class="pokemon-details max-w-4xl mx-auto mt-12 p-12 rounded-3xl shadow-lg
+         bg-gray-50
+         text-gray-900
+         border border-gray-300
+         transition-all duration-300"
+  *ngIf="pokemon"
+>
+  <div class="flex flex-col md:flex-row items-center gap-12">
+    <!-- Imagen del Pokémon -->
+    <img
+      [src]="pokemon.sprites?.front_default"
+      [alt]="pokemon.name"
+      class="w-72 h-72 object-contain filter drop-shadow-xl rounded-xl
+             transition-transform duration-300 hover:scale-110 hover:drop-shadow-2xl"
+    />
+
+    <!-- Datos principales -->
+    <div class="text-center md:text-left space-y-6">
+      <h2 class="text-6xl font-extrabold capitalize tracking-wider text-gray-900
+                 border-b-4 border-gray-800 pb-3">
+        {{ pokemon.name }}
+      </h2>
+      <p class="text-3xl"><span class="font-semibold text-gray-800">Height:</span> {{ pokemon.height }}</p>
+      <p class="text-3xl"><span class="font-semibold text-gray-800">Weight:</span> {{ pokemon.weight }}</p>
+      <p class="text-3xl"><span class="font-semibold text-gray-800">Base Experience:</span> {{ pokemon.base_experience }}</p>
+    </div>
+  </div>
+
+  <!-- Abilities -->
+  <div class="mt-14">
+    <h3 class="text-4xl font-semibold mb-8 text-center text-gray-900 tracking-wide
+               border-t-2 border-gray-400 pt-5">
+      Abilities
+    </h3>
+    <ul class="flex flex-wrap justify-center gap-5">
+      <li
+        *ngFor="let ability of pokemon.abilities"
+        class="bg-gray-900 text-gray-100 px-8 py-3 rounded-full text-2xl capitalize
+               shadow-lg hover:bg-gray-700 transition duration-300 cursor-pointer select-none"
+      >
+        {{ ability.ability.name }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -28,11 +28,11 @@ getAllPokemons() {
     this.allPokemons.forEach(pokemon => {
       this.PokemonService.getPokemonByName(pokemon.name).subscribe((details) => {
         // Añadir ceros delante en id
-        let idStr = details.id.toString();
-        while (idStr.length < 3) {
-          idStr = '0' + idStr;
-        }
-        details.id = idStr;
+        // let idStr = details.id.toString();
+        // while (idStr.length < 3) {
+        //   idStr = '0' + idStr;
+        // }
+        // details.id = idStr;
 
         // Añadir al array
         this.pokemons.push(details);
@@ -46,11 +46,14 @@ getAllPokemons() {
 
 
 filter() {
-      this.router.navigate(['/resultados'], { queryParams: { q: this.pokemonNameFilter } });
+this.router.navigate(['/search'], { queryParams: { q: this.pokemonNameFilter } });
 
 }
+
+viewPokemonData(id: number) {
+  this.router.navigate(['/pokemon-view'], { queryParams: { id: id } });
   }
 
-  
+}
 
 
