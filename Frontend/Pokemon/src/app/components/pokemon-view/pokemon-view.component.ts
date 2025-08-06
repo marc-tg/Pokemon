@@ -19,10 +19,10 @@ export class PokemonViewComponent implements OnInit {
   ngOnInit() {
 
     this.route.queryParams.subscribe(params => {
-      const pokemonId = params['id'];
+      const pokemonName = params['name'];
 
-      if (pokemonId) {
-        this.pokemonService.getPokemonById(pokemonId).subscribe(pokemon => {
+      if (pokemonName) {
+        this.pokemonService.getPokemonByName(pokemonName).subscribe(pokemon => {
           this.pokemon = pokemon;
         });
 

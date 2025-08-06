@@ -16,7 +16,7 @@ export class HomeComponent {
    pokemons:any[]  = [];
    allPokemons:any[] = []
    pokemonNameFilter: string = '';
-
+  pokemonName: string = '';
   constructor(private router : Router, private PokemonService : PokemonServiceService) {
     this.getAllPokemons();
     
@@ -45,13 +45,13 @@ getAllPokemons() {
 }
 
 
-filter() {
-this.router.navigate(['/search'], { queryParams: { q: this.pokemonNameFilter } });
+filter(name: string = this.pokemonName) {
+  this.router.navigate(['/pokemon-view'], { queryParams: { name: name } });
 
 }
 
-viewPokemonData(id: number) {
-  this.router.navigate(['/pokemon-view'], { queryParams: { id: id } });
+viewPokemonData(name: string) {
+  this.router.navigate(['/pokemon-view'], { queryParams: { name: name } });
   }
 
 }

@@ -19,8 +19,5 @@ private url = "http://localhost:3000/api";
   return this.http.get(`${this.url}/pokemon/${name}`);
 }
 
- getPokemonById(id: any): Observable<any> {
-  return this.http.get(`${this.url}/pokemon/${id}`);
-}
 
 }
