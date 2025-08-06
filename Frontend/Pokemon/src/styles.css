@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+      font-family: "Pixelify Sans", sans-serif;
+background-color: rgb(56, 55, 74);
+color: #f0f0f0;
+}
+
+.title {
+  font-family: "Jersey 20", sans-serif;
+    font-size: 80px;
+}
