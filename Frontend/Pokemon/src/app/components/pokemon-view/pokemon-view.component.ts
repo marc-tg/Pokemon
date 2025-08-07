@@ -41,4 +41,16 @@ export class PokemonViewComponent implements OnInit {
       this.router.navigate(['/']);
     }
 
+
+    changeSprites() {
+      if (this.pokemon) {
+        const sprites = this.pokemon.sprites;
+        const frontDefault = sprites.front_default;
+        const backDefault = sprites.back_default;
+
+        // Cambiar entre front_default y back_default
+        sprites.front_default = backDefault;
+        sprites.back_default = frontDefault;
+      }
+    }
 }
