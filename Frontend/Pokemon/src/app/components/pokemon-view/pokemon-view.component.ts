@@ -14,6 +14,11 @@ import { CommonModule } from '@angular/common';
 export class PokemonViewComponent implements OnInit {
   pokemon: any; // o el tipo que devuelva tu servicio
 
+activeSprite: string = '';
+spriteList: string[] = [];
+currentSpriteIndex: number = 0;
+
+
   constructor(private router: Router, private route: ActivatedRoute , private pokemonService: PokemonServiceService) {}
 
   ngOnInit() {
@@ -24,6 +29,11 @@ export class PokemonViewComponent implements OnInit {
       if (pokemonName) {
         this.pokemonService.getPokemonByName(pokemonName).subscribe(pokemon => {
           this.pokemon = pokemon;
+            const allSprites = Object.values(pokemon.sprites).filter(sprite => typeof sprite === 'string' && sprite !== null);
+this.spriteList = allSprites;
+  this.currentSpriteIndex = 0;
+  this.activeSprite = this.spriteList[0]; // Mostrar el primero
+
         });
 
         console.log("Pokemon" + this.pokemon);
@@ -41,16 +51,11 @@ export class PokemonViewComponent implements OnInit {
       this.router.navigate(['/']);
     }
 
+changeSprites() {
+  if (this.spriteList.length > 0) {
+    this.currentSpriteIndex = (this.currentSpriteIndex + 1) % this.spriteList.length;
+    this.activeSprite = this.spriteList[this.currentSpriteIndex];
+  }
+}
 
-    changeSprites() {
-      if (this.pokemon) {
-        const sprites = this.pokemon.sprites;
-        const frontDefault = sprites.front_default;
-        const backDefault = sprites.back_default;
-
-        // Cambiar entre front_default y back_default
-        sprites.front_default = backDefault;
-        sprites.back_default = frontDefault;
-      }
-    }
 }
