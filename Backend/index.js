@@ -8,8 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
-// Servir Angular estático
-app.use(express.static(path.join(__dirname, 'dist/pokemon')));
+app.use(express.static(path.join(__dirname, 'browser')));
 
 // API Endpoints
 app.get('/api/pokemon', async (req, res) => {
@@ -31,9 +30,9 @@ app.get('/api/pokemon/:name', async (req, res) => {
   }
 });
 
-// Ruta para SPA Angular
+
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/pokemon/index.html'));
+  res.sendFile(path.join(__dirname, 'browser/index.html'));
 });
 
 app.listen(PORT, () => {
