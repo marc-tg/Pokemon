@@ -1,47 +1,41 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Habilitar CORS para que pueda conectarse Angular (otro origen)
 app.use(cors());
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+// Servir Angular estático
+app.use(express.static(path.join(__dirname, 'dist/pokemon')));
 
+// API Endpoints
 app.get('/api/pokemon', async (req, res) => {
   try {
-    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=50&offset=0');
-    res.json(response.data.results); // devuelve [{name, url}, ...]
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0');
+    res.json(response.data.results);
   } catch (error) {
     res.status(500).json({ error: 'Error al obtener la lista de Pokémon' });
   }
 });
 
-
-
 app.get('/api/pokemon/:name', async (req, res) => {
-    const { name } = req.params;
+  const { name } = req.params;
+  try {
+    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    res.json(response.data);
+  } catch (error) {
+    res.status(404).json({ error: 'Pokémon no encontrado' });
+  }
+});
 
-    try {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+// Ruta para SPA Angular
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/pokemon/index.html'));
+});
 
-        const data = response.data;
-
-        const pokemonData = {
-            id: data.id,
-            name: data.name,
-            image: data.sprites.front_default
-        }
-
-        res.json(pokemonData);
-
-
-    } catch (error) {
-        res.status(404).json({ error: 'Pokémon no encontrado' });
-
-    }
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
