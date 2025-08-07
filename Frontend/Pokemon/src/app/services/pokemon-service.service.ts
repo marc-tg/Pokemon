@@ -7,17 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class PokemonServiceService {
 
-  constructor(private http: HttpClient) { }
+  private url = "/.netlify/functions";
 
-private url = "http://localhost:3000/api";
+  constructor(private http: HttpClient) { }
 
   getAllPokemons(): Observable<any> {
     return this.http.get(`${this.url}/pokemon`);
   }
 
   getPokemonByName(name: string): Observable<any> {
-  return this.http.get(`${this.url}/pokemon/${name}`);
-}
-
-
+    return this.http.get(`${this.url}/pokemon-name?name=${name}`);
+  }
 }
