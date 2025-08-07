@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-   "build": "cd ../Frontend/Pokemon && ng build --configuration production && cpx \"dist/**/*\" ../Backend/dist/"
-,
-    "start": "node index.js"
-  },
+ "scripts": {
+  "build": "cd ../Frontend/Pokemon && npx ng build --configuration production && npx cpx \"dist/**/*\" ../Backend/dist/",
+  "start": "node index.js"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
