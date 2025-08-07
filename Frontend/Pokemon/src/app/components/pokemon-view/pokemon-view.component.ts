@@ -26,7 +26,7 @@ export class PokemonViewComponent implements OnInit {
           this.pokemon = pokemon;
         });
 
-        console.log(this.pokemon);
+        console.log("Pokemon" + this.pokemon);
       } else {
         this.pokemon = null;
       }
