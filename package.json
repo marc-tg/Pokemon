@@ -1,0 +1,13 @@
+{
+  "name": "pokemon-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "install-all": "cd Frontend/Pokemon && npm install && cd ../../Backend && npm install",
+    "build": "cd Frontend/Pokemon && npx ng build --configuration production && npx cpx \"dist/**/*\" ../../Backend/dist/",
+    "start": "node Backend/index.js"
+  },
+  "devDependencies": {
+    "@angular/cli": "^15.2.0",
+    "cpx": "^1.5.0"
+  }
+}
